@@ -2,13 +2,16 @@
 <h3>Orbit Report</h3>
 <table>
    <tr class="header-row">
-      <th class="sortable">Name</th>
-      <th class="sortable">Type</th>
+      <th class="sortable" (click)="sort('name')">Name header</th>
+      <th class="sortable" (click)="sort('type')">Type</th>
       <th>Operational</th>
       <th>Orbit Type</th>
       <th>Launch Date</th>
    </tr>
-   <tr *ngFor="let list of this.sourceList">     
+
+   <tr *ngFor="let list of this.satellites"
+   [ngStyle]="{'background-color' : list.type === 'Space Debris' ? ' #da8a8a' : ' #dad8d8'}"
+   >     
       <td>{{list.name}}</td>
       <td>{{list.type}}</td>
       <td>{{list.operational}}</td>
